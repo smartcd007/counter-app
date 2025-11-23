@@ -20,8 +20,37 @@ A modern HTML/CSS/JS counter with customizable step control and keyboard shortcu
 3. Modify the step value to control increment amounts
 4. Your values are automatically saved to browser storage
 
-## File Structure
+## Development
+
+### Setup
+
+```bash
+npm install
+```
+
+### Testing
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+Watch mode for development:
+
+```bash
+npm run test:watch
+```
+
+Generate coverage report:
+
+```bash
+npm run test:coverage
+```
+
+### File Structure
 
 - `index.html` - Markup with form controls and buttons
 - `script.js` - Counter logic with localStorage persistence and keyboard handlers
 - `styles.css` - Modern styling with hover effects and responsive design
+- `__tests__/` - Test suite with comprehensive test cases
