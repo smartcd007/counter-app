@@ -8,12 +8,22 @@
 </head>
 <body>
   <main class="container">
-    <h1>Counter</h1>
-    <div id="counter" class="counter" aria-live="polite">0</div>
+    <h1>Counter App</h1>
+    <div id="counter" class="counter" aria-live="polite" role="status">0</div>
+    
+    <div class="controls">
+      <label for="step">Step:</label>
+      <input type="number" id="step" class="step-input" value="1" min="1" />
+    </div>
+
     <div class="buttons">
-      <button id="decrease" class="btn">Decrease</button>
-      <button id="reset" class="btn">Reset</button>
-      <button id="increase" class="btn">Increase</button>
+      <button id="decrease" class="btn btn-decrease" aria-label="Decrease counter">−</button>
+      <button id="reset" class="btn btn-reset" aria-label="Reset counter">Reset</button>
+      <button id="increase" class="btn btn-increase" aria-label="Increase counter">+</button>
+    </div>
+
+    <div class="info">
+      <small id="info-text">Counter value: 0</small>
     </div>
   </main>
 
