@@ -1,4 +1,4 @@
-import { CounterApp } from '../script.js';
+const { CounterApp } = require('../script.js');
 
 describe('CounterApp', () => {
   let app;
@@ -20,6 +20,13 @@ describe('CounterApp', () => {
     };
 
     app = new CounterApp({ store: mockStore });
+  });
+
+  afterEach(() => {
+    // Clear the store after each test
+    if (mockStore) {
+      mockStore.clear();
+    }
   });
 
   describe('Initialization', () => {
@@ -252,11 +259,12 @@ describe('CounterApp', () => {
     });
 
     it('should handle operations without persistence', () => {
-      const appNoStore = new CounterApp({ store: null });
-      appNoStore.setStep(5);
-      appNoStore.increase();
-      expect(appNoStore.getCount()).toBe(5);
-      expect(appNoStore.getStep()).toBe(5);
+      // Create a fresh app instance without any shared state
+      const freshApp = new CounterApp({ store: null });
+      freshApp.setStep(5);
+      freshApp.increase();
+      expect(freshApp.getCount()).toBe(5);
+      expect(freshApp.getStep()).toBe(5);
     });
   });
 });

@@ -1,9 +1,9 @@
 // Counter app with step control and persistence
-export class CounterApp {
+class CounterApp {
   constructor(options = {}) {
     this.count = 0;
     this.step = 1;
-    this.store = options.store || (typeof localStorage !== 'undefined' ? localStorage : null);
+    this.store = 'store' in options ? options.store : (typeof localStorage !== 'undefined' ? localStorage : null);
 
     // Restore saved values
     if (this.store) {
@@ -60,6 +60,11 @@ export class CounterApp {
       step: this.step
     };
   }
+}
+
+// Export for Node/Jest
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { CounterApp };
 }
 
 // Initialize app if DOM is available
